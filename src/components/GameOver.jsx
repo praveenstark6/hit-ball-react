@@ -1,18 +1,16 @@
-import { Button, Modal, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import {
+  Button,
+  Typography,
+  Box,
+  createTheme,
+  ThemeProvider,
+  responsiveFontSizes,
+} from "@mui/material";
+import "./css/gameover.css";
 import React from "react";
 
-const style = {
-  display: "flex",
-  flexDirection: "column",
-  textAlign: "center",
-  width: "auto",
-  height: 500,
-  margin: "auto",
-  alignItems: "center",
-  justifyContent: "center",
-  gap: "2rem",
-};
+let theme = createTheme();
+theme = responsiveFontSizes(theme);
 
 const GameOver = ({
   handleStartOver,
@@ -22,27 +20,31 @@ const GameOver = ({
 }) => {
   return (
     <div>
-      <Box sx={style}>
-        <Typography variant="h1">Game Over</Typography>
-        {isNewHigh && <Typography variant="h2">New Highest Score!</Typography>}
-        <Typography variant="h3">Highest Score: {highestScore}</Typography>
-        <div style={{ display: "flex", gap: "2rem" }}>
-          <Button
-            onClick={handleStartOver}
-            style={{ background: "green" }}
-            variant="contained"
-          >
-            Start Over
-          </Button>
-          <Button
-            onClick={handleResetHighScore}
-            style={{ background: "red" }}
-            variant="contained"
-          >
-            Reset High Score
-          </Button>
-        </div>
-      </Box>
+      <ThemeProvider theme={theme}>
+        <Box className="gameover">
+          <Typography variant="h1">Game Over</Typography>
+          {isNewHigh && (
+            <Typography variant="h2">New Highest Score!</Typography>
+          )}
+          <Typography variant="h3">Highest Score: {highestScore}</Typography>
+          <div className="button">
+            <Button
+              onClick={handleStartOver}
+              style={{ background: "green" }}
+              variant="contained"
+            >
+              Start Over
+            </Button>
+            <Button
+              onClick={handleResetHighScore}
+              style={{ background: "red" }}
+              variant="contained"
+            >
+              Reset High Score
+            </Button>
+          </div>
+        </Box>
+      </ThemeProvider>
     </div>
   );
 };

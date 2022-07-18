@@ -8,13 +8,13 @@ body {
 .playground {
   position: relative;
   height: 500px;
-  width: 50%;
+  width: 500px;
   margin: auto;
 }
 @media screen and (max-width: 600px) {
   .playground {
     position: relative;
-    width: 50%;
+    width: 400px;
     margin: 100px auto;
   }
 }

@@ -1,0 +1,15 @@
+.header {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  width: 500px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    width: 400px;
+  }
+}

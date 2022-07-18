@@ -1,0 +1,33 @@
+.gameover {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: auto;
+  height: 500px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.button {
+  display: flex;
+  gap: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .gameover {
+    width: auto;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .button {
+    display: flex;
+    gap: 1rem;
+  }
+}
