@@ -1,4 +1,12 @@
+import {
+  createTheme,
+  responsiveFontSizes,
+  ThemeProvider,
+  Typography,
+} from "@mui/material";
 import React from "react";
+let theme = createTheme();
+theme = responsiveFontSizes(theme);
 
 const Ball = ({ coordinates, onHit }) => {
   let [top, bottom, left, right] = coordinates;
@@ -16,8 +24,18 @@ const Ball = ({ coordinates, onHit }) => {
     cursor: "pointer",
     objectFit: "contain",
     outline: "none",
+    textAlign: "center",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   };
-  return <div className="ball" style={styles} onClick={onHit}></div>;
+  return (
+    <div className="ball" style={styles} onClick={onHit}>
+      <ThemeProvider theme={theme}>
+        <Typography>Hit Me!</Typography>
+      </ThemeProvider>
+    </div>
+  );
 };
 
 export default Ball;

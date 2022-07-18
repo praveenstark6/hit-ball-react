@@ -17,7 +17,17 @@ const GameOver = ({
   handleResetHighScore,
   highestScore,
   isNewHigh,
+  playRestartAudio,
+  playResetHighScoreAudio,
 }) => {
+  const onStartOverClick = () => {
+    handleStartOver();
+    playRestartAudio();
+  };
+  const onResetHighScore = () => {
+    handleResetHighScore();
+    playResetHighScoreAudio();
+  };
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -29,14 +39,14 @@ const GameOver = ({
           <Typography variant="h3">Highest Score: {highestScore}</Typography>
           <div className="button">
             <Button
-              onClick={handleStartOver}
+              onClick={onStartOverClick}
               style={{ background: "green" }}
               variant="contained"
             >
               Start Over
             </Button>
             <Button
-              onClick={handleResetHighScore}
+              onClick={onResetHighScore}
               style={{ background: "red" }}
               variant="contained"
             >

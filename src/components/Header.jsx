@@ -1,7 +1,11 @@
 import React from "react";
 import { Typography, Button } from "@mui/material";
 import "./css/header.css";
-const Header = ({ score, onReset, lives }) => {
+const Header = ({ score, onReset, lives, playResetScoreAudio }) => {
+  const onClickReset = () => {
+    onReset();
+    playResetScoreAudio();
+  };
   return (
     <div className="header">
       <Typography style={{ textAlign: "center", fontSize: "24px" }}>
