@@ -142,7 +142,7 @@ function App() {
           </OutsideClickHandler>
         </div>
       )}
-      <p>{clicked ? "ball hit" : "outside hit"}</p>
+      {/* <p>{clicked ? "ball hit" : "outside hit"}</p> */}
     </div>
   );
 }
