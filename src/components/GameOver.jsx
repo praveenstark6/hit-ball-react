@@ -3,43 +3,46 @@ import { Box } from "@mui/system";
 import React from "react";
 
 const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 500,
-  textAlign: "center",
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
   display: "flex",
   flexDirection: "column",
+  textAlign: "center",
+  width: "auto",
+  height: 500,
+  margin: "auto",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "2rem",
 };
 
-const GameOver = () => {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+const GameOver = ({
+  handleStartOver,
+  handleResetHighScore,
+  highestScore,
+  isNewHigh,
+}) => {
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
-      <Modal
-        open={open}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography variant="h1">GameOver</Typography>
+      <Box sx={style}>
+        <Typography variant="h1">Game Over</Typography>
+        {isNewHigh && <Typography variant="h2">New Highest Score!</Typography>}
+        <Typography variant="h3">Highest Score: {highestScore}</Typography>
+        <div style={{ display: "flex", gap: "2rem" }}>
           <Button
-            onClick={handleClose}
+            onClick={handleStartOver}
             style={{ background: "green" }}
             variant="contained"
           >
             Start Over
           </Button>
-        </Box>
-      </Modal>
+          <Button
+            onClick={handleResetHighScore}
+            style={{ background: "red" }}
+            variant="contained"
+          >
+            Reset High Score
+          </Button>
+        </div>
+      </Box>
     </div>
   );
 };
